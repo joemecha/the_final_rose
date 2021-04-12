@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 2021_04_12_031818) do
   create_table "bachelorettes", force: :cascade do |t|
     t.string "name"
     t.integer "season_number"
-    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
   end
 
   create_table "contestants", force: :cascade do |t|

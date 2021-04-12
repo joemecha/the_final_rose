@@ -6,9 +6,9 @@ RSpec.describe 'As a visitor' do
       @bachelorette_1 = Bachelorette.create!(name: 'Rose Petale', season_number: 1, description: "The Original Problematic Premise")
       @bachelorette_2 = Bachelorette.create!(name: 'Daisy Duckas', season_number: 2, description: "Quack Quack")
       @marvin = @bachelorette_1.contestants.create!(name: 'Marvin Marlin', age: 45, hometown: "Miami, TX" )
-      @wooly = @bachelorette_1.contestants.create!(name: 'Wolly Willy', age: 35, hometown: "Washington, DE" )
+      @woolly = @bachelorette_1.contestants.create!(name: 'Woolly Willy', age: 35, hometown: "Washington, DE" )
 
-      visit "/bachelorettes/#{@bachelorette.id}"
+      visit "/bachelorettes/#{@bachelorette_1.id}"
     end
 
     it "then I see only that bachelorette's name, season number, season description" do
@@ -20,8 +20,9 @@ RSpec.describe 'As a visitor' do
     end
 
     it "it also displays a link to view this bachelorette's contestants" do
-      expect(page).to have_link("View #{@bachelorette_1}'s Contestants")
-      click_link "View #{@bachelorette_1}'s Contestants"
+      expect(page).to have_link("View #{@bachelorette_1.name}'s Contestants")
+
+      click_link "View #{@bachelorette_1.name}'s Contestants"
 
       expect(current_path).to eq("/bachelorettes/#{@bachelorette_1.id}/contestants")
     end
