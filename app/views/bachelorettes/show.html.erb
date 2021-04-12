@@ -1,0 +1,4 @@
+<h2>Meet <%= @bachelorette.name %>!</h2>
+<h4>Season <%= @bachelorette.season_number %> - <%= @bachelorette.description %>!</h4>
+<br>
+<h4> <%= link_to "View #{@bachelorette.name}'s Contestants", "/bachelorettes/#{@bachelorette.id}/contestants" %> </h4>
